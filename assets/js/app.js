@@ -21,17 +21,17 @@ async function loadStories() {
         const data = await response.json();
         const stories = data.stories;
         const lastUpdate = new Date(data.lastUpdate);
-        
+
         storiesContainer.innerHTML = `
             <div class="update-time">Last Updated: ${lastUpdate.toLocaleString('zh-CN')}</div>
         `;
-        
+
         stories.forEach((story, index) => {
             const storyElement = document.createElement("div");
             storyElement.className = "story";
-            
+
             const timeAgo = formatTime(story.time);
-            
+
             storyElement.innerHTML = `
                 <span class="rank">${index + 1}</span>
                 <div class="story-content">
