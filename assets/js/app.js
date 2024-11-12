@@ -32,17 +32,18 @@ async function loadStories() {
             
             const timeAgo = formatTime(story.time);
             
-            storyElement.innerHTML = 
-            `<span class="rank">${index + 1}</span>
-            <div class="story-content">
-                <a href="${story.url}" target="_blank">${story.title}</a>
-                <p>
-                    ${story.score} points by 
-                    <a href="https://news.ycombinator.com/user?id=${story.by}" target="_blank" class="user-link">${story.by}</a> 
-                    <a href="https://news.ycombinator.com/item?id=${story.id}" target="_blank" class="time-link">${timeAgo}</a> | 
-                    <a href="https://news.ycombinator.com/item?id=${story.id}" target="_blank" class="comments-link">${story.descendants || 0} comments</a>
-                </p>
-            </div>`;
+            storyElement.innerHTML = `
+                <span class="rank">${index + 1}</span>
+                <div class="story-content">
+                    <a href="${story.url}" target="_blank">${story.title}</a>
+                    ${story.summary ? `<div class="summary">${marked.parse(story.summary)}</div>` : ''}
+                    <p>
+                        ${story.score} points by 
+                        <a href="https://news.ycombinator.com/user?id=${story.by}" target="_blank" class="user-link">${story.by}</a> 
+                        <a href="https://news.ycombinator.com/item?id=${story.id}" target="_blank" class="time-link">${timeAgo}</a> | 
+                        <a href="https://news.ycombinator.com/item?id=${story.id}" target="_blank" class="comments-link">${story.descendants || 0} comments</a>
+                    </p>
+                </div>`;
             storiesContainer.appendChild(storyElement);
         });
     } catch (error) {

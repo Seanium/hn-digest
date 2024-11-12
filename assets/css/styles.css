@@ -81,3 +81,30 @@ header h1 {
     font-size: 0.8rem;
     margin-bottom: 1rem;
 }
+
+.summary {
+    margin: 0.8rem 0;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 1rem 1.2rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid #ff6600;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.summary p, .summary em, .summary strong {
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.summary:hover {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transform: translateX(2px);
+}
+

@@ -1,0 +1,16 @@
+{
+  "name": "hn-digest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node assets/js/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "zhipuai-sdk-nodejs-v4": "^0.1.12"
+  }
+}

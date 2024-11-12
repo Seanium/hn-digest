@@ -1,1 +1,3 @@
-stories.json
+node_modules/
+.env
+assets/data/stories.json

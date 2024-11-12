@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -30,9 +30,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
           
-      - name: Fetch latest stories
-        run: node assets/js/fetch-stories.js
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch and Summarize
+        env:
+          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+        run: npm run start
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
