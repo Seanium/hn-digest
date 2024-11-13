@@ -2,7 +2,7 @@
 import asyncio
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 import logging
 from hn_fetcher import HNFetcher
@@ -18,7 +18,7 @@ async def main():
 
     try:
         # Initialize components
-        hn_fetcher = HNFetcher(story_limit=20)
+        hn_fetcher = HNFetcher(story_limit=2)
         content_fetcher = ContentFetcher()
         summarizer = Summarizer(api_key=os.getenv("ZHIPU_API_KEY"))
 
@@ -59,7 +59,10 @@ async def main():
             f"📊 Successfully generated {successful_summaries} summaries out of {total_stories} stories"
         )
         # Save results
-        data = {"stories": stories, "lastUpdate": datetime.now().isoformat()}
+        last_update = datetime.now(timezone.utc).isoformat()
+        logger.info(f"Last update: {last_update}")
+        data = {"stories": stories, "lastUpdate": last_update}
+    
 
         os.makedirs("assets/data", exist_ok=True)
         with open("assets/data/stories.json", "w", encoding="utf-8") as f:
