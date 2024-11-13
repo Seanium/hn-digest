@@ -108,3 +108,26 @@ header h1 {
     transform: translateX(2px);
 }
 
+.title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.favicon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-top: 0.12em;
+}
+
+/* 调整标题链接样式 */
+.title-row > a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    flex: 1;
+}

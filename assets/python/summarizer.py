@@ -14,12 +14,6 @@ class Summarizer:
     async def generate_summary(self, content: str) -> str:
         if not content:
             return None
-
-        max_chars = 5000000
-        if len(content) > max_chars:
-            content = content[:max_chars]
-            self.logger.info(f"Content truncated to {max_chars} characters")
-
         try:
             prompt = dedent(
                 f"""

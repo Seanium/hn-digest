@@ -29,13 +29,18 @@ async function loadStories() {
         stories.forEach((story, index) => {
             const storyElement = document.createElement("div");
             storyElement.className = "story";
-
             const timeAgo = formatTime(story.time);
+
+            const domain = story.url ? new URL(story.url).hostname : '';
+            const faviconUrl = `https://favicon.im/${domain}`;
 
             storyElement.innerHTML = `
                 <span class="rank">${index + 1}</span>
                 <div class="story-content">
-                    <a href="${story.url}" target="_blank">${story.title}</a>
+                    <div class="title-row">
+                        <img src="${faviconUrl}" class="favicon" alt="" onerror="this.style.display='none'"/>
+                        <a href="${story.url}" target="_blank">${story.title}</a>
+                    </div>
                     ${story.summary ? `<div class="summary">${marked.parse(story.summary)}</div>` : ''}
                     <p>
                         ${story.score} points by 
