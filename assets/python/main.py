@@ -18,7 +18,7 @@ async def main():
 
     try:
         # Initialize components
-        hn_fetcher = HNFetcher(story_limit=2)
+        hn_fetcher = HNFetcher(story_limit=20)
         content_fetcher = ContentFetcher()
         summarizer = Summarizer(api_key=os.getenv("ZHIPU_API_KEY"))
 
