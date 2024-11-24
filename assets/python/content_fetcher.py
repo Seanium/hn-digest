@@ -1,4 +1,3 @@
-# content_fetcher.py
 import asyncio
 from crawl4ai import AsyncWebCrawler
 import pdfplumber
@@ -46,6 +45,7 @@ class ContentFetcher:
                     simulate_user=True,
                     override_navigator=True,
                     magic=True,
+                    fit_markdown=True,
                 )
                 if (
                     result
