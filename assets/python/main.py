@@ -40,11 +40,16 @@ async def main():
                     )
                     summary = await summarizer.generate_summary(content)
                     story["summary"] = summary
-                    logger.info(
-                        f"✅ {index}/{total_stories} Summary generated successfully: "
-                        + summary[:100]
-                        + "..."
-                    )
+                    if summary:
+                        logger.info(
+                            f"✅ {index}/{total_stories} Summary generated successfully: "
+                            + summary[:100]
+                            + "..."
+                        )
+                    else:
+                        logger.warning(
+                            f"⚠️ {index}/{total_stories} Summary generation returned None"
+                        )
                 else:
                     logger.warning(
                         f"❌ {index}/{total_stories} Failed to fetch content for story"
