@@ -37,7 +37,7 @@ class Summarizer:
             ).strip()
 
             response = self.client.chat.completions.create(
-                model="glm-4-flash", messages=[{"role": "user", "content": prompt}]
+                model="glm-4-flash-250414", messages=[{"role": "user", "content": prompt}]
             )
 
             return response.choices[0].message.content
