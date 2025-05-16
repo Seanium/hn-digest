@@ -1,6 +1,6 @@
 # <p align="center">Hacker News Digest</p>
 
-<p align="center">实时抓取 Hacker News 热门文章，LLM 生成中文总结</p>
+<p align="center">定时抓取 Hacker News 热门文章，LLM 生成总结</p>
 
 ## Demo
 
