@@ -4,7 +4,7 @@
 
 ## Demo
 
-演示站点：[Hacker News Digest](https://hnews.tech/)
+演示站点：[Hacker News Digest](https://seanium.github.io/hn-digest/)
 
 网站截图：
 
